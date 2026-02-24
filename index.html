@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Still Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #D96F52;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .still-life {
+            position: relative;
+            width: 600px;
+            height: 420px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        /* Flattened dome / half-sphere (left) */
+        .dome {
+            position: absolute;
+            left: 50px;
+            bottom: 95px;
+            width: 130px;
+            height: 95px;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            background: linear-gradient(
+                145deg,
+                #FFFFFF 0%,
+                #F5F5F5 25%,
+                #E8E8E8 60%,
+                #D8D8D8 100%
+            );
+            box-shadow: 
+                inset 6px 6px 16px rgba(255,255,255,0.8),
+                inset -4px -4px 12px rgba(0,0,0,0.06),
+                0 8px 24px rgba(0,0,0,0.12),
+                0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Retro monitor (center) - puffy, rounded */
+        .computer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 90px;
+            width: 175px;
+            height: 165px;
+            background: linear-gradient(
+                145deg,
+                #EBEBEB 0%,
+                #E0E0E0 40%,
+                #D5D5D5 70%,
+                #C8C8C8 100%
+            );
+            border-radius: 16px;
+            box-shadow: 
+                inset 4px 4px 12px rgba(255,255,255,0.7),
+                inset -3px -3px 10px rgba(0,0,0,0.06),
+                0 8px 28px rgba(0,0,0,0.12),
+                0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .computer-screen {
+            position: absolute;
+            top: 20px;
+            left: 18px;
+            width: 139px;
+            height: 90px;
+            background: #000;
+            border-radius: 8px;
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+        }
+
+        .computer-vent {
+            position: absolute;
+            top: 118px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .computer-led {
+            position: absolute;
+            top: 115px;
+            right: 24px;
+            width: 10px;
+            height: 10px;
+            background: #E24F4F;
+            border-radius: 3px;
+            box-shadow: 0 0 6px rgba(226,79,79,0.5);
+        }
+
+        /* Marker pen / bottle (right) */
+        .bottle {
+            position: absolute;
+            right: 70px;
+            bottom: 90px;
+            width: 44px;
+            height: 155px;
+        }
+
+        .bottle-body {
+            position: absolute;
+            bottom: 0;
+            left: 4px;
+            width: 36px;
+            height: 115px;
+            background: linear-gradient(
+                90deg,
+                #FFFFFF 0%,
+                #F5F5F5 30%,
+                #E8E8E8 70%,
+                #D8D8D8 100%
+            );
+            border-radius: 6px;
+            box-shadow: 
+                inset 4px 0 10px rgba(255,255,255,0.6),
+                inset -2px 0 6px rgba(0,0,0,0.05),
+                0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .bottle-cap {
+            position: absolute;
+            bottom: 115px;
+            left: 6px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(
+                90deg,
+                #FAFAFA 0%,
+                #EEEEEE 50%,
+                #E0E0E0 100%
+            );
+            border-radius: 4px;
+            box-shadow: inset 2px 0 6px rgba(255,255,255,0.5);
+        }
+
+        .bottle-nib {
+            position: absolute;
+            bottom: 140px;
+            left: 12px;
+            width: 20px;
+            height: 12px;
+            background: #874C30;
+            border-radius: 2px;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Oranges - vibrant with highlight */
+        .orange {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 35% 30%,
+                #FFB84D 0%,
+                #FC971F 25%,
+                #FFA500 60%,
+                #E67E00 100%
+            );
+            box-shadow: 
+                inset 4px 4px 10px rgba(255,255,255,0.45),
+                inset -2px -2px 6px rgba(0,0,0,0.1),
+                0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        /* Orange on dome - centered on top */
+        .orange.orange-dome {
+            width: 36px;
+            height: 36px;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orange.orange-dome::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+            width: 10px;
+            height: 7px;
+            background: #6AD14F;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        /* Orange on monitor - top-right corner */
+        .orange.orange-monitor {
+            width: 34px;
+            height: 34px;
+            top: -12px;
+            right: -4px;
+        }
+
+        .orange.orange-monitor::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(5deg);
+            width: 9px;
+            height: 6px;
+            background: #6AD14F;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="still-life">
+        <div class="dome">
+            <div class="orange orange-dome"></div>
+        </div>
+
+        <div class="computer">
+            <div class="computer-screen"></div>
+            <div class="computer-vent"></div>
+            <div class="computer-led"></div>
+            <div class="orange orange-monitor"></div>
+        </div>
+
+        <div class="bottle">
+            <div class="bottle-body"></div>
+            <div class="bottle-cap"></div>
+            <div class="bottle-nib"></div>
+        </div>
+    </div>
+</body>
+</html>
