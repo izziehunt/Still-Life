@@ -27,21 +27,10 @@
             background: #c85c3a;
         }
 
-        /* Implied surface / baseline */
-        .baseline {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(0, 0, 0, 0.08);
-        }
-
-        /* Large white sphere - behind/overlapping computer bottom-left */
         .sphere {
             position: absolute;
             bottom: 80px;
-            left: 90px;
+            left: 25px;
             width: 180px;
             height: 180px;
             border-radius: 50%;
@@ -50,7 +39,6 @@
             z-index: 2;
         }
 
-        /* Computer - Mac Classic style */
         .computer {
             position: absolute;
             bottom: 80px;
@@ -60,11 +48,6 @@
             height: 240px;
             background: linear-gradient(to bottom, #e8e4df 0%, #d4cfc8 50%, #c9c4bd 100%);
             border-radius: 12px 12px 4px 4px;
-            box-shadow: 
-                inset 2px 0 0 rgba(255, 255, 255, 0.4),
-                inset -2px 0 0 rgba(0, 0, 0, 0.05),
-                0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 3;
         }
 
         .computer-screen {
@@ -76,7 +59,6 @@
             height: 100px;
             background: #1a1a1a;
             border-radius: 4px;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
         }
 
         .computer-drive {
@@ -98,25 +80,22 @@
             height: 10px;
             background: #c43a2b;
             border-radius: 2px;
-            box-shadow: 0 0 6px rgba(196, 58, 43, 0.6);
         }
 
-        /* White bottle - right of computer */
         .bottle {
             position: absolute;
             bottom: 80px;
             right: 70px;
             width: 50px;
             height: 220px;
-            z-index: 2;
         }
 
         .bottle-body {
             position: absolute;
             bottom: 0;
-            left: 50%;
+            left: 30%;
             transform: translateX(-50%);
-            width: 42px;
+            width: 75px;
             height: 160px;
             background: linear-gradient(to right, #f5f5f5 0%, #fff 30%, #e8e8e8 70%, #d8d8d8 100%);
             border-radius: 4px 4px 8px 8px;
@@ -126,18 +105,18 @@
         .bottle-neck {
             position: absolute;
             bottom: 160px;
-            left: 50%;
+            left: 30%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 50px;
+            width: 30px;
+            height: 35px;
             background: linear-gradient(to right, #f0f0f0 0%, #fff 40%, #e0e0e0 100%);
             border-radius: 2px 2px 0 0;
         }
 
         .bottle-cork {
             position: absolute;
-            bottom: 208px;
-            left: 50%;
+            bottom: 180px;
+            left: 30%;
             transform: translateX(-50%);
             width: 18px;
             height: 22px;
@@ -145,18 +124,15 @@
             border-radius: 2px 2px 8px 8px;
         }
 
-        /* Orange on top of computer */
         .orange-top {
             position: absolute;
             bottom: 318px;
-            left: 50%;
+            left: 65%;
             transform: translateX(-50%);
-            width: 48px;
-            height: 48px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             background: radial-gradient(circle at 30% 30%, #ffb347, #ff8c00 50%, #e67e00 100%);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            z-index: 5;
         }
 
         .orange-top::after {
@@ -171,13 +147,12 @@
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
         }
 
-        /* Orange in front - overlapping sphere */
         .orange-front {
             position: absolute;
-            bottom: 95px;
-            left: 140px;
-            width: 52px;
-            height: 52px;
+            bottom: 75px;
+            left: 180px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 25%, #ffb84d, #ff9f00 45%, #e67e00 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
@@ -216,3 +191,4 @@
     </div>
 </body>
 </html>
+
