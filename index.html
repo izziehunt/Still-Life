@@ -1,194 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Still Life</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #c85c3a;
-            font-family: system-ui, sans-serif;
-        }
-
-        .scene {
-            position: relative;
-            width: 600px;
-            height: 500px;
-            background: #c85c3a;
-        }
-
-        .sphere {
-            position: absolute;
-            bottom: 80px;
-            left: 25px;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(to right, #fff 0%, #e8e8e8 40%, #b0b0b0 100%);
-            box-shadow: inset -10px -5px 20px rgba(0, 0, 0, 0.08);
-            z-index: 2;
-        }
-
-        .computer {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-45%);
-            width: 200px;
-            height: 240px;
-            background: linear-gradient(to bottom, #e8e4df 0%, #d4cfc8 50%, #c9c4bd 100%);
-            border-radius: 12px 12px 4px 4px;
-        }
-
-        .computer-screen {
-            position: absolute;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 100px;
-            background: #1a1a1a;
-            border-radius: 4px;
-        }
-
-        .computer-drive {
-            position: absolute;
-            top: 132px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #1a1a1a;
-            border-radius: 2px;
-        }
-
-        .computer-light {
-            position: absolute;
-            top: 128px;
-            left: 30px;
-            width: 10px;
-            height: 10px;
-            background: #c43a2b;
-            border-radius: 2px;
-        }
-
-        .bottle {
-            position: absolute;
-            bottom: 80px;
-            right: 70px;
-            width: 50px;
-            height: 220px;
-        }
-
-        .bottle-body {
-            position: absolute;
-            bottom: 0;
-            left: 30%;
-            transform: translateX(-50%);
-            width: 75px;
-            height: 160px;
-            background: linear-gradient(to right, #f5f5f5 0%, #fff 30%, #e8e8e8 70%, #d8d8d8 100%);
-            border-radius: 4px 4px 8px 8px;
-            box-shadow: inset 8px 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        .bottle-neck {
-            position: absolute;
-            bottom: 160px;
-            left: 30%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 35px;
-            background: linear-gradient(to right, #f0f0f0 0%, #fff 40%, #e0e0e0 100%);
-            border-radius: 2px 2px 0 0;
-        }
-
-        .bottle-cork {
-            position: absolute;
-            bottom: 180px;
-            left: 30%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 22px;
-            background: linear-gradient(to right, #c4a574 0%, #d4b884 40%, #b8955c 100%);
-            border-radius: 2px 2px 8px 8px;
-        }
-
-        .orange-top {
-            position: absolute;
-            bottom: 318px;
-            left: 65%;
-            transform: translateX(-50%);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffb347, #ff8c00 50%, #e67e00 100%);
-        }
-
-        .orange-top::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 14px;
-            height: 10px;
-            background: #4a9c3a;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-
-        .orange-front {
-            position: absolute;
-            bottom: 75px;
-            left: 180px;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 25%, #ffb84d, #ff9f00 45%, #e67e00 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-            z-index: 6;
-        }
-
-        .orange-front::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 12px;
-            background: #4a9c3a;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waypoint</title>
+  <script>document.documentElement.classList.add("waypoint-js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Roboto:wght@400;500;700&family=Rowdies:wght@400&display=swap" rel="stylesheet">
+  <!-- ./ keeps paths correct when opening from disk or subfolders -->
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="scene">
-        <div class="baseline"></div>
-        <div class="sphere"></div>
-        <div class="computer">
-            <div class="computer-screen"></div>
-            <div class="computer-drive"></div>
-            <div class="computer-light"></div>
+  <div class="app-shell">
+    <main class="viewport" id="app" aria-live="polite">
+      <!-- Splash — orange intro, plane fly-in, then START -->
+      <section class="view view-splash" id="view-splash" aria-label="Welcome">
+        <div class="splash-intro">
+          <h1 class="splash-logo">Waypoint</h1>
+          <div class="splash-plane-layer" aria-hidden="true">
+            <img class="splash-plane" id="splash-plane-img" alt="" width="3300" height="2551" hidden>
+          </div>
+          <p class="splash-tagline">Your next adventure awaits</p>
+          <button type="button" class="btn-start btn-start--splash" id="btn-start">START</button>
         </div>
-        <div class="bottle">
-            <div class="bottle-body"></div>
-            <div class="bottle-neck"></div>
-            <div class="bottle-cork"></div>
+      </section>
+
+      <!-- Map (Frame 1) — positions match Figma 935×665 -->
+      <section class="view view-map" id="view-map" hidden aria-label="World map">
+        <button type="button" class="nav-back nav-back--map" id="btn-map-back" aria-label="Back to start">←</button>
+        <button type="button" class="nav-saved" id="btn-map-collection" aria-label="Saved postcards">Saved</button>
+        <div class="map-frame">
+          <img class="map-frame__bg" id="map-bg-img" alt="" width="935" height="664" hidden>
+          <div class="map-pins" role="group" aria-label="Destinations">
+            <button type="button" class="map-pin" data-city="amsterdam" style="--pin-l: 414; --pin-t: 208; --pin-w: 29; --pin-h: 58;" aria-label="Amsterdam">
+              <img alt="" data-tag="amsterdam">
+            </button>
+            <button type="button" class="map-pin" data-city="athens" style="--pin-l: 384; --pin-t: 295; --pin-w: 51; --pin-h: 74;" aria-label="Athens">
+              <img alt="" data-tag="athens">
+            </button>
+            <button type="button" class="map-pin" data-city="venice" style="--pin-l: 435; --pin-t: 283; --pin-w: 43; --pin-h: 50;" aria-label="Venice">
+              <img alt="" data-tag="venice">
+            </button>
+            <button type="button" class="map-pin" data-city="sydney" style="--pin-l: 783; --pin-t: 478; --pin-w: 56; --pin-h: 72;" aria-label="Sydney">
+              <img alt="" data-tag="sydney">
+            </button>
+            <button type="button" class="map-pin" data-city="berlin" style="--pin-l: 443; --pin-t: 217; --pin-w: 47; --pin-h: 56;" aria-label="Berlin">
+              <img alt="" data-tag="berlin">
+            </button>
+            <button type="button" class="map-pin" data-city="tokyo" style="--pin-l: 799; --pin-t: 287; --pin-w: 40; --pin-h: 77;" aria-label="Tokyo">
+              <img alt="" data-tag="tokyo">
+            </button>
+            <button type="button" class="map-pin" data-city="ny" style="--pin-l: 257; --pin-t: 120; --pin-w: 41; --pin-h: 66;" aria-label="New York">
+              <img alt="" data-tag="ny">
+            </button>
+            <button type="button" class="map-pin" data-city="boston" style="--pin-l: 222; --pin-t: 186; --pin-w: 39; --pin-h: 55;" aria-label="Boston">
+              <img alt="" data-tag="boston">
+            </button>
+            <button type="button" class="map-pin" data-city="sanfran" style="--pin-l: 82; --pin-t: 228; --pin-w: 32; --pin-h: 42;" aria-label="San Francisco">
+              <img alt="" data-tag="sanfran">
+            </button>
+            <button type="button" class="map-pin" data-city="barcelona" style="--pin-l: 380; --pin-t: 217; --pin-w: 30; --pin-h: 41;" aria-label="Barcelona">
+              <img alt="" data-tag="barcelona">
+            </button>
+          </div>
         </div>
-        <div class="orange-top"></div>
-        <div class="orange-front"></div>
-    </div>
+      </section>
+
+      <!-- Destination preview -->
+      <section class="view view-preview" id="view-preview" hidden aria-label="Destination preview">
+        <button type="button" class="nav-back" id="btn-preview-back" aria-label="Back to map">← Map</button>
+        <div class="panel panel--parchment">
+          <p class="preview-kicker" id="preview-kicker">Destination</p>
+          <h1 class="preview-title" id="preview-title">City</h1>
+          <p class="preview-copy" id="preview-copy"></p>
+          <button type="button" class="btn-start btn-start--inline" id="btn-explore">Explore location</button>
+        </div>
+      </section>
+
+      <!-- Detail -->
+      <section class="view view-detail" id="view-detail" hidden aria-label="Destination details">
+        <button type="button" class="nav-back" id="btn-detail-back" aria-label="Back">←</button>
+        <div class="panel panel--parchment panel--scroll">
+          <h1 class="detail-title" id="detail-title">City</h1>
+          <div class="detail-sections" id="detail-sections"></div>
+          <button type="button" class="btn-start btn-start--inline" id="btn-write-postcard">Write postcard</button>
+        </div>
+      </section>
+
+      <!-- Postcard (Frames 2 + 4) -->
+      <section class="view view-postcard" id="view-postcard" hidden aria-label="Postcard">
+        <button type="button" class="nav-back" id="btn-postcard-back" aria-label="Back">←</button>
+        <div class="postcard-stage">
+          <div class="postcard" id="postcard">
+            <div class="postcard__inner">
+              <div class="postcard__face postcard__face--front">
+                <div class="postcard__front-wrap">
+                  <img class="postcard__front-img" id="postcard-front-img" alt="" width="921" height="614">
+                  <div class="plane-badge plane-badge--lg" aria-hidden="true">
+                    <span class="plane-badge__square"></span>
+                    <img class="plane-badge__plane" id="plane-lg" alt="">
+                  </div>
+                  <button type="button" class="btn-flip" data-flip aria-label="Flip postcard">FLIP</button>
+                </div>
+              </div>
+              <div class="postcard__face postcard__face--back">
+                <div class="postcard__back-wrap">
+                  <img class="postcard__back-img" id="postcard-back-img" alt="" width="927" height="618">
+                  <div class="plane-badge plane-badge--sm" aria-hidden="true">
+                    <span class="plane-badge__square plane-badge__square--sm"></span>
+                    <img class="plane-badge__plane" id="plane-sm" alt="">
+                  </div>
+                  <label class="sr-only" for="postcard-note">Write about your adventure</label>
+                  <textarea
+                    id="postcard-note"
+                    class="postcard-textarea"
+                    name="note"
+                    rows="8"
+                    placeholder="Write here"
+                    autocomplete="off"
+                  ></textarea>
+                  <button type="button" class="btn-flip btn-flip--on-back" data-flip aria-label="Flip postcard">FLIP</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="adventure-label" aria-hidden="true">Write about your adventure</p>
+        <button type="button" class="btn-start btn-start--inline" id="btn-save-postcard">Save postcard</button>
+      </section>
+
+      <!-- Collection -->
+      <section class="view view-collection" id="view-collection" hidden aria-label="Saved postcards">
+        <button type="button" class="nav-back" id="btn-collection-back" aria-label="Back to map">← Map</button>
+        <div class="panel panel--parchment panel--scroll">
+          <h1 class="detail-title">Postcard collection</h1>
+          <div id="collection-list" class="collection-list"></div>
+          <p class="collection-empty" id="collection-empty">No postcards saved yet. Write one from a destination.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="./js/assets.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
-
